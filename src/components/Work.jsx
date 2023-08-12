@@ -11,7 +11,7 @@
 //       <div className="max-w-[1000px] mx-auto p-4 flex flex-col justify-center w-full h-full">
 //         <div className="pb-8">
 //           <p className="text-4xl font-bold inline border-b-4 text-gray-300 border-pink-600">
-//             Projects 
+//             Projects
 //           </p>
 //           <p className="py-6">// Check out some of my project's</p>
 //         </div>
@@ -23,7 +23,7 @@
 //             <div
 //               key={index}
 //               style={{ backgroundImage: `url(${item.image})`}}
-//               className="shadow-lg shadow-[#040c16] group container rounded-md 
+//               className="shadow-lg shadow-[#040c16] group container rounded-md
 //               flex justify-center text-center items-center mx-auto content-div "
 //             >
 //               {/* Hover effect for images */}
@@ -62,13 +62,16 @@
 
 // export default Work;
 
-
 import React from "react";
 import { projects } from "../data/data";
 import { CodeIcon } from "@heroicons/react/solid";
 export default function Work() {
   return (
-    <section name ="work" id="projects" className="text-gray-400 bg-gray-900 body-font">
+    <section
+      name="work"
+      id="projects"
+      className="text-gray-400 bg-gray-900 body-font"
+    >
       <div className="container px-5 py-10 mx-auto text-center lg:px-40">
         <div className="flex flex-col w-full mb-20">
           <CodeIcon className="mx-auto inline-block w-10 mb-4" />
@@ -76,9 +79,9 @@ export default function Work() {
             Apps I've Built
           </h1>
           <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo
-            facilis repellat ab cupiditate alias vero aliquid obcaecati quisquam
-            fuga dolore.
+            I have successfully implemented a diverse range of projects,
+            showcasing my skills in areas such as web application development,
+            algorithm analysis, and secure web app creation.
           </p>
         </div>
         <div className="flex flex-wrap m-4">
@@ -86,7 +89,8 @@ export default function Work() {
             <a
               href={project.link}
               key={project.image}
-              className="sm:w-1/2 w-100 p-4">
+              className="sm:w-1/2 w-100 p-4"
+            >
               <div className="flex relative">
                 <img
                   alt="gallery"
