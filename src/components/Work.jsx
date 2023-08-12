@@ -79,9 +79,7 @@ export default function Work() {
             Apps I've Built
           </h1>
           <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-            I have successfully implemented a diverse range of projects,
-            showcasing my skills in areas such as web application development,
-            algorithm analysis, and secure web app creation.
+            I have successfully implemented a diverse range of projects, Here are some Projects listed below
           </p>
         </div>
         <div className="flex flex-wrap m-4">
