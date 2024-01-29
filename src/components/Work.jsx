@@ -1,12 +1,13 @@
 import React from "react";
 import { projects } from "../data/data";
 import { CodeIcon } from "@heroicons/react/solid";
-export default function Work() {
+export default function Work({refProps}) {
   return (
     <section
       name="work"
       id="projects"
       className="text-gray-400 bg-gray-900 body-font"
+      ref={refProps}
     >
       <div className="container px-5 py-10 mx-auto text-center lg:px-40">
         <div className="flex flex-col w-full mb-20">

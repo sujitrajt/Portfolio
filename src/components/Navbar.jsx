@@ -11,12 +11,13 @@ import {
 } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import { BsFillPersonLinesFill } from "react-icons/bs";
+import resume from "../images/sujitraj_Resume.pdf"
 const Navbar = () => {
   const [nav, setNav] = useState(false);
   const handleClick = () => setNav(!nav);
-  // const handleRes = () => {
+  const handleRes = () => {
     
-  // }
+   }
   return (
     <div className="fixed w-full h-[80px] flex justify-between items-center  bg-[#0a192f] text-gray-300">
       <div>
@@ -118,23 +119,15 @@ const Navbar = () => {
               Email <HiOutlineMail size={30} />
             </a>
           </li>
-          {/* <li className="w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-[#565f69]">
+          <li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-[#565f69]'>
             <a
-              className="flex justify-between items-center w-full text-gray-300"
-              href="/Users/sujitrajthirumurthy/Documents/Git/Portfolio/src/assets/sujitraj_thirumurthy.pdf"
+              className='flex justify-between items-center w-full text-gray-300'
+              href={resume}
+              download='Sujitraj_Resume'
             >
               Resume <BsFillPersonLinesFill size={30} />
             </a>
-            Resume
-            <BsFillPersonLinesFill size={30}>
-              <iframe
-                src="https://www.google.com/"
-                width="800"
-                height="500"
-                onClick={handleRes}
-              ></iframe>
-            </BsFillPersonLinesFill>
-          </li> */}
+          </li>
         </ul>
       </div>
     </div>
