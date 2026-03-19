@@ -49,19 +49,30 @@ export default function Work({ refProps }) {
                     {project.description}
                   </p>
 
+                  {project.techStack?.length ? (
+                    <div className="flex flex-wrap gap-2 justify-center mt-4">
+                      {project.techStack.map((tech) => (
+                        <span
+                          key={`${project.title}-${tech}`}
+                          className="px-3 py-1 text-xs rounded-full bg-blue-500/20 text-blue-100 border border-blue-400/30"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  ) : null}
+
                   {/* CTA Buttons */}
                   {project.link && (
                     <div className="flex gap-3 justify-center mt-6">
-                      {project.link && (
-                        <a
-                          href={project.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="px-4 py-2 rounded-lg bg-pink-600/80 hover:bg-pink-600 text-white text-sm font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/50"
-                        >
-                          View Project
-                        </a>
-                      )}
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-4 py-2 rounded-lg bg-pink-600/80 hover:bg-pink-600 text-white text-sm font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/50"
+                      >
+                        View Project
+                      </a>
                     </div>
                   )}
                 </div>

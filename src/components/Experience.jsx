@@ -1,5 +1,5 @@
-import React from "react";
-import { BriefcaseIcon } from "@heroicons/react/solid";
+import React, { useState } from "react";
+import { BriefcaseIcon, ChevronDownIcon } from "@heroicons/react/solid";
 
 const experiences = [
   {
@@ -41,6 +41,17 @@ const experiences = [
 ];
 
 const Experience = () => {
+  // Only the first (most recent) role is expanded by default
+  const [expandedIdx, setExpandedIdx] = useState(new Set([0]));
+
+  const toggle = (idx) => {
+    setExpandedIdx((prev) => {
+      const next = new Set(prev);
+      next.has(idx) ? next.delete(idx) : next.add(idx);
+      return next;
+    });
+  };
+
   return (
     <section
       name="experience"
@@ -64,36 +75,65 @@ const Experience = () => {
           <div className="absolute left-2 top-0 h-full w-[2px] bg-gradient-to-b from-pink-500/70 via-blue-500/70 to-transparent md:left-1/2 md:-translate-x-1/2" />
 
           <div className="space-y-8">
-            {experiences.map((item, idx) => (
-              <article
-                key={`${item.company}-${item.role}`}
-                className={`relative card-glass p-6 md:w-[47%] ${
-                  idx % 2 === 0 ? "md:ml-0" : "md:ml-auto"
-                }`}
-              >
-                <span className="absolute -left-1 top-8 h-4 w-4 rounded-full bg-pink-500 shadow-lg shadow-pink-500/50 md:left-auto md:right-[-10px]" />
+            {experiences.map((item, idx) => {
+              const isOpen = expandedIdx.has(idx);
+              return (
+                <article
+                  key={`${item.company}-${item.role}`}
+                  className={`relative card-glass md:w-[47%] ${
+                    idx % 2 === 0 ? "md:ml-0" : "md:ml-auto"
+                  }`}
+                >
+                  <span className="absolute -left-1 top-8 h-4 w-4 rounded-full bg-pink-500 shadow-lg shadow-pink-500/50 md:left-auto md:right-[-10px]" />
 
-                <p className="text-sm text-blue-300 font-semibold">
-                  {item.period}
-                </p>
-                <h3 className="text-2xl font-bold text-white mt-1">
-                  {item.role}
-                </h3>
-                <p className="text-pink-300 font-semibold mt-1">
-                  {item.company}
-                </p>
-                <p className="text-text-muted text-sm mt-1">{item.location}</p>
+                  {/* Clickable header */}
+                  <button
+                    onClick={() => toggle(idx)}
+                    className="w-full text-left p-6 flex items-start justify-between gap-3 group"
+                    aria-expanded={isOpen}
+                  >
+                    <div>
+                      <p className="text-sm text-blue-300 font-semibold">
+                        {item.period}
+                      </p>
+                      <h3 className="text-2xl font-bold text-white mt-1">
+                        {item.role}
+                      </h3>
+                      <p className="text-pink-300 font-semibold mt-1">
+                        {item.company}
+                      </p>
+                      <p className="text-text-muted text-sm mt-1">
+                        {item.location}
+                      </p>
+                    </div>
 
-                <ul className="mt-4 space-y-2 text-text-secondary text-sm leading-relaxed">
-                  {item.highlights.map((point) => (
-                    <li key={point} className="flex gap-2">
-                      <span className="text-pink-400">•</span>
-                      <span>{point}</span>
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            ))}
+                    <ChevronDownIcon
+                      className={`w-5 h-5 mt-2 flex-shrink-0 text-pink-400 transition-transform duration-300 ${
+                        isOpen ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+
+                  {/* Collapsible highlights — grid-rows trick for smooth height animation */}
+                  <div
+                    className={`grid transition-all duration-300 ease-in-out ${
+                      isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                    }`}
+                  >
+                    <div className="overflow-hidden">
+                      <ul className="px-6 pb-6 space-y-2 text-text-secondary text-sm leading-relaxed">
+                        {item.highlights.map((point) => (
+                          <li key={point} className="flex gap-2">
+                            <span className="text-pink-400 mt-0.5">•</span>
+                            <span>{point}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </div>

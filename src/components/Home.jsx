@@ -1,7 +1,43 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { HiArrowNarrowRight } from "react-icons/hi";
 
+const roleHeadlines = [
+  "Full-Stack Developer (React • Spring Boot • AWS)",
+  "Backend Software Developer",
+  "Building Scalable APIs & Systems",
+  "Cloud-Native Application Developer",
+  "Performance & Scalability Focused",
+  "Turning Ideas into Production Systems",
+];
+
 const Home = ({ scrollCallback }) => {
+  const [typedText, setTypedText] = useState("");
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const currentRole = roleHeadlines[roleIndex];
+    let timer;
+
+    if (!isDeleting && typedText === currentRole) {
+      timer = setTimeout(() => setIsDeleting(true), 1200);
+    } else if (isDeleting && typedText === "") {
+      setIsDeleting(false);
+      setRoleIndex((prev) => (prev + 1) % roleHeadlines.length);
+    } else {
+      const speed = isDeleting ? 45 : 95;
+      timer = setTimeout(() => {
+        setTypedText((prev) =>
+          isDeleting
+            ? currentRole.slice(0, prev.length - 1)
+            : currentRole.slice(0, prev.length + 1),
+        );
+      }, speed);
+    }
+
+    return () => clearTimeout(timer);
+  }, [typedText, roleIndex, isDeleting]);
+
   return (
     <div
       name="home"
@@ -21,8 +57,12 @@ const Home = ({ scrollCallback }) => {
         <h2
           className="text-4xl sm:text-6xl font-bold bg-gradient-to-r from-blue-400 to-pink-600 bg-clip-text text-transparent mt-4 animate-slideInLeft"
           style={{ animationDelay: "0.2s" }}
+          aria-live="polite"
         >
-          Full-Stack Software Engineer
+          {typedText}
+          <span className="inline-block ml-1 text-pink-500 animate-pulse">
+            |
+          </span>
         </h2>
         <p
           className="text-[#cbd5e1] py-6 max-w-[700px] text-lg leading-relaxed animate-slideInLeft"

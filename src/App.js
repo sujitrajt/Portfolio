@@ -7,6 +7,8 @@ import About from "./components/About"
 import SocialLinks from "./components/SocialLinks";
 import Experience from "./components/Experience";
 import Certifications from "./components/Certifications";
+import Footer from "./components/Footer";
+import VisitorCounter from "./components/VisitorCounter";
 import React, { useRef } from "react";
 function App() {
   const workRef = useRef();
@@ -15,6 +17,7 @@ function App() {
   }
   return (
     <div>
+      <VisitorCounter />
       <Navbar />
       <SocialLinks />
       <Home scrollCallback={scrollCallback} />
@@ -24,6 +27,7 @@ function App() {
       <Skills />
       <Work refProps={workRef} />
       <Contact />
+      <Footer />
     </div>
   );
 }
