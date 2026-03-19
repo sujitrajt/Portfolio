@@ -1,30 +1,45 @@
 import React from "react";
 import { HiArrowNarrowRight } from "react-icons/hi";
 
-const Home = ({scrollCallback}) => {
+const Home = ({ scrollCallback }) => {
   return (
-    <div name="home" className="w-full h-screen bg-[#0a192f]">
+    <div
+      name="home"
+      className="w-full h-screen bg-gradient-hero relative overflow-hidden hero-glow pt-20"
+    >
       {/* Container */}
-      <div className="max-w-[1000px] mx-auto px-8 flex flex-col justify-center h-full">
-        <p className="text-pink-600 text-2xl">Hi, my name is</p>
-        <h1 className="text-4xl sm:text-7xl font-bold text-[#ccd6f6]">
+      <div className="max-w-[1000px] mx-auto px-8 flex flex-col justify-center h-full relative z-10">
+        <p className="text-pink-600 text-2xl font-semibold animate-slideInLeft">
+          Hi, my name is
+        </p>
+        <h1
+          className="text-5xl sm:text-7xl font-bold text-[#ccd6f6] mt-2 animate-slideInLeft"
+          style={{ animationDelay: "0.1s" }}
+        >
           Sujitraj Thirumurthy
         </h1>
-        <h2 className="text-4xl sm:text-7xl font-bold text-[#8892b0]">
-          I'm a Software Developer.
+        <h2
+          className="text-4xl sm:text-6xl font-bold bg-gradient-to-r from-blue-400 to-pink-600 bg-clip-text text-transparent mt-4 animate-slideInLeft"
+          style={{ animationDelay: "0.2s" }}
+        >
+          Full-Stack Software Engineer
         </h2>
-        <p className="text-[#8892b0] py-4 max-w-[700px]">
-          👋 I'm Sujitraj Thirumurthy, a tech enthusiast skilled in Java,
-          Python, and web tech like ReactJS & Flask. I thrive on building
-          dynamic web experiences, crafting interfaces with Bootstrap, and
-          developing APIs. From sorting algorithms to secure web apps, I love
-          tackling challenges. Let's innovate together!
+        <p
+          className="text-[#cbd5e1] py-6 max-w-[700px] text-lg leading-relaxed animate-slideInLeft"
+          style={{ animationDelay: "0.3s" }}
+        >
+          Building scalable applications with React.js, Spring Boot, and Cloud
+          Architecture. AWS Certified | 5+ years crafting innovative solutions |
+          Passionate about performance & user experience.
         </p>
-        <div>
-          <button className="text-white group border-2 px-6 py-3 my-2 flex items-center hover:bg-pink-600 hover:border-pink-600" onClick={()=>scrollCallback()}>
-            View Work
-            <span className="group-hover:rotate-90 duration-300">
-              <HiArrowNarrowRight className="ml-3 " />
+        <div className="animate-slideInLeft" style={{ animationDelay: "0.4s" }}>
+          <button
+            onClick={() => scrollCallback()}
+            className="text-white group border-2 border-pink-600 px-8 py-4 my-2 flex items-center rounded-lg hover:bg-pink-600 hover:shadow-xl hover:shadow-pink-600/50 transition-all duration-300 transform hover:scale-105"
+          >
+            View My Work
+            <span className="group-hover:translate-x-2 group-hover:rotate-0 duration-300">
+              <HiArrowNarrowRight className="ml-3" />
             </span>
           </button>
         </div>
