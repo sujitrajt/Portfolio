@@ -21,8 +21,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "echo \"Auto deployment runs via GitHub Actions when you push to main\"",
+    "deploy:manual": "npm run build && gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
