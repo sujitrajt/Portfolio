@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Logo from "../assets/logo-color.png";
+import ResumePDF from "../images/sujitraj_Resume.pdf";
 import { Link } from "react-scroll";
 import { FaBars, FaTimes } from "react-icons/fa";
 
@@ -38,6 +39,16 @@ const Navbar = () => {
             </Link>
           </li>
         ))}
+        <li>
+          <a
+            href={ResumePDF}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 rounded-full border border-pink-500 text-pink-400 text-sm font-semibold hover:bg-pink-500 hover:text-white transition-all duration-300"
+          >
+            Resume
+          </a>
+        </li>
       </ul>
 
       {/* Hamburger Icon */}
@@ -71,6 +82,17 @@ const Navbar = () => {
             </Link>
           </li>
         ))}
+        <li className="py-6">
+          <a
+            href={ResumePDF}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={handleClick}
+            className="px-8 py-3 rounded-full border border-pink-500 text-pink-400 text-2xl font-semibold hover:bg-pink-500 hover:text-white transition-all duration-300"
+          >
+            Resume
+          </a>
+        </li>
       </ul>
     </div>
   );
