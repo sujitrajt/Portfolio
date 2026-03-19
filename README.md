@@ -22,15 +22,18 @@ npm run build
 Deployment is automated with GitHub Actions.
 
 How it works:
+
 - Push code to `main`
 - Workflow builds the app
 - Build output is published to `gh-pages`
 - Site is served from GitHub Pages
 
 Workflow file:
+
 - `.github/workflows/deploy.yml`
 
 Live URL:
+
 - `http://sujitrajt.github.io/Portfolio`
 
 ## Manual Fallback (Optional)

@@ -6,6 +6,7 @@ import Skills from "./components/Skills"
 import About from "./components/About"
 import SocialLinks from "./components/SocialLinks";
 import Experience from "./components/Experience";
+import Certifications from "./components/Certifications";
 import React, { useRef } from "react";
 function App() {
   const workRef = useRef();
@@ -19,6 +20,7 @@ function App() {
       <Home scrollCallback={scrollCallback} />
       <About />
       <Experience />
+      <Certifications />
       <Skills />
       <Work refProps={workRef} />
       <Contact />
